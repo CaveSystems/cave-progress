@@ -14,7 +14,8 @@
     <PackageIconUrl>https://www.cavesystems.de/favicon.ico</PackageIconUrl>
     <PackageTags>CaveSystems Progress</PackageTags>
     <PackageProjectUrl>https://github.com/Dingsd4/cave-progress</PackageProjectUrl>
-    <!--PackageReleaseNotes>Aktueller Release Candidate 2018</PackageReleaseNotes-->
+    <RepositoryUrl>https://github.com/Dingsd4/cave-progress</RepositoryUrl>
+    <PackageReleaseNotes />
     <Description>Cave.Progress is a small and simple threadsafe, multi progress management solution for .NET</Description>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
