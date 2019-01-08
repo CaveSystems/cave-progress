@@ -22,7 +22,6 @@ You will need:
 
 1. Visual Studio VS2017 (Community Edition) or later
 2. Target Framework packs:
-    * netstandard1.0
     * netstandard1.3
     * netstandard2.0
     * netcoreapp1.0
