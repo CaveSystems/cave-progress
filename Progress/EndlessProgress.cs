@@ -20,7 +20,7 @@
             {
                 EstimatedMaxCount = c + 1;
             }
-            Value = Value / EstimatedMaxCount;
+            Value = c / (float)EstimatedMaxCount;
         }
 
         /// <summary>Gets the estimated maximum count.</summary>
