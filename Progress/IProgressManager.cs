@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace Cave.Progress
 {
     /// <summary>
-    /// Provides an interface for the <see cref="ProgressManager"/> and <see cref="ProgressManagerBase"/> implementations
+    /// Provides an interface for the <see cref="ProgressManager"/> and <see cref="ProgressManagerBase"/> implementations.
     /// </summary>
     public interface IProgressManager
     {
@@ -24,7 +24,7 @@ namespace Cave.Progress
         event EventHandler<ProgressEventArgs> Updated;
 
         /// <summary>
-        /// Retrieves the current progress items
+        /// Gets the current progress items.
         /// </summary>
         IEnumerable<IProgress> Items { get; }
     }

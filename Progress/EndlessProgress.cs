@@ -1,7 +1,7 @@
 ﻿namespace Cave
 {
     /// <summary>
-    /// Provides an endless progress calculator (increasing slices all the time but never reaching 100%)
+    /// Provides an endless progress calculator (increasing slices all the time but never reaching 100%).
     /// </summary>
     public class EndlessProgress
     {

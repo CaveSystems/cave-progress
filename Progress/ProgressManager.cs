@@ -12,7 +12,7 @@ namespace Cave.Progress
         static IProgressManager globalInstance;
 
         /// <summary>
-        /// Allows access to the global static used instance.
+        /// Gets the global static used instance.
         /// </summary>
         public static IProgressManager GlobalInstance
         {
@@ -33,7 +33,7 @@ namespace Cave.Progress
         /// <remarks>
         /// All events of <see cref="IProgress"/> objects will be routed to the new global instance.
         /// </remarks>
-        /// <param name="newGlobalInstance">New global instance to use</param>
+        /// <param name="newGlobalInstance">New global instance to use.</param>
         /// <param name="removeUpdatedEvent">Set to true to remove <see cref="Updated"/> handler from old instance preventing updates to old instance.</param>
         public static void SetGlobalInstance(IProgressManager newGlobalInstance, bool removeUpdatedEvent = false)
         {
@@ -75,16 +75,16 @@ namespace Cave.Progress
         /// The <see cref="Updated"/> event will be fired upon the first <see cref="IProgress.Update(float, string)"/> call.
         /// </remarks>
         /// <returns>Retruns a new instance implementing the <see cref="IProgress"/> interface.</returns>
-        public new static IProgress CreateProgress() => GlobalInstance.CreateProgress();
+        public static new IProgress CreateProgress() => GlobalInstance.CreateProgress();
 
         /// <summary>
         /// Provides an event for each progress update / completion
         /// </summary>
-        public new static event EventHandler<ProgressEventArgs> Updated;
+        public static new event EventHandler<ProgressEventArgs> Updated;
 
         /// <summary>
-        /// Retrieves the current progress items
+        /// Retrieves the current progress items.
         /// </summary>
-        public new static IEnumerable<IProgress> Items = GlobalInstance.Items;
+        public static new IEnumerable<IProgress> Items = GlobalInstance.Items;
     }
 }

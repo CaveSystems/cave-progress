@@ -5,11 +5,10 @@ namespace Cave
     /// <summary>
     /// Provides an event for <see cref="IEstimation"/> classes to notify about actualizations.
     /// </summary>
-
-    public sealed class EstimationActualizedEventArgs : EventArgs //MakeInternal:KEEP
+    public sealed class EstimationActualizedEventArgs : EventArgs // MakeInternal:KEEP
     {
         /// <summary>
-        /// Creates new <see cref="EstimationActualizedEventArgs"/>
+        /// Initializes a new instance of the <see cref="EstimationActualizedEventArgs"/> class.
         /// </summary>
         public EstimationActualizedEventArgs(DateTime estimatedEndTime)
         {
@@ -17,7 +16,7 @@ namespace Cave
         }
 
         /// <summary>
-        /// Obtains the estimated end time
+        /// Gets the estimated end time.
         /// </summary>
         public DateTime EstimatedEndTime { get; }
     }

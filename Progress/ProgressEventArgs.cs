@@ -8,7 +8,7 @@ namespace Cave.Progress
     public class ProgressEventArgs : EventArgs
     {
         /// <summary>
-        /// Creates a new instance of the <see cref="ProgressEventArgs"/> class
+        /// Initializes a new instance of the <see cref="ProgressEventArgs"/> class.
         /// </summary>
         /// <param name="progress"></param>
         public ProgressEventArgs(IProgress progress)
@@ -17,7 +17,7 @@ namespace Cave.Progress
         }
 
         /// <summary>
-        /// Progress object implementing the <see cref="IProgress"/> interface
+        /// Gets the progress object implementing the <see cref="IProgress"/> interface.
         /// </summary>
         public IProgress Progress { get; }
     }

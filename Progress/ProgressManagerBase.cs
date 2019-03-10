@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading;
-using System;
 
 #if !NET20
 using System.Linq;
@@ -22,11 +22,11 @@ namespace Cave.Progress
 
         class ProgressItem : IProgress
         {
-            ProgressManagerBase Manager;
+            ProgressManagerBase manager;
             public ProgressItem(ProgressManagerBase manager)
             {
-                Manager = manager;
-                Identifier = Interlocked.Increment(ref Manager.nextIdentifier);
+                this.manager = manager;
+                Identifier = Interlocked.Increment(ref this.manager.nextIdentifier);
             }
             public int Identifier { get; }
             public float Value { get; private set; }
@@ -38,7 +38,7 @@ namespace Cave.Progress
                 {
                     Value = 1;
                     Completed = true;
-                    Manager.OnUpdated(this);
+                    manager.OnUpdated(this);
                 }
             }
             public void Update(float value, string text = null)
@@ -66,7 +66,7 @@ namespace Cave.Progress
                     }
                     Value = value;
 
-                    Manager.OnUpdated(this);
+                    manager.OnUpdated(this);
                 }
             }
 
@@ -81,7 +81,10 @@ namespace Cave.Progress
             Updated?.Invoke(progress, new ProgressEventArgs(progress));
             if (progress.Completed)
             {
-                lock (this) { items.Remove(progress); }
+                lock (this)
+                {
+                    items.Remove(progress);
+                }
             }
         }
 
@@ -100,7 +103,8 @@ namespace Cave.Progress
         /// <returns>Retruns a new instance implementing the <see cref="IProgress"/> interface.</returns>
         public IProgress CreateProgress()
         {
-            var result = new ProgressItem(this); lock (this)
+            var result = new ProgressItem(this);
+            lock (this)
             {
 #if NET20
                 items.Add(result, result);
@@ -112,7 +116,7 @@ namespace Cave.Progress
         }
 
         /// <summary>
-        /// Retrieves the current progress items
+        /// Gets the current progress items.
         /// </summary>
         public IEnumerable<IProgress> Items
         {
